@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Northfork Auto &amp; Tire</title>
+<meta name="description" content="Auto repair, PA state inspection, brakes, tires and diagnostics in Corry, PA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#ECEEF0;
+  --surface:#FFFFFF;
+  --ink:#14202B;
+  --ink-soft:#4E5C68;
+  --line:#CBD2D8;
+  --steel:#25333F;
+  --steel-2:#2F3F4D;
+  --on-steel:#E9EEF2;
+  --on-steel-soft:#A9B6C1;
+  --red:#C9372A;
+  --red-ink:#FFFFFF;
+  --ticket:#FFF4C2;
+  --ticket-ink:#2A2410;
+  --ticket-line:#D9C77A;
+  --ok:#2E7D4F;
+  --display:"Big Shoulders Display","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --radius:4px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E151B; --surface:#152029; --ink:#E6ECF1; --ink-soft:#9FAEBB; --line:#2A3946;
+    --steel:#0A1117; --steel-2:#14202B; --red:#E2493B; --ticket:#3A3418; --ticket-ink:#F4EBC4; --ticket-line:#6B5E2A; --ok:#5DBB84;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E151B; --surface:#152029; --ink:#E6ECF1; --ink-soft:#9FAEBB; --line:#2A3946;
+  --steel:#0A1117; --steel-2:#14202B; --red:#E2493B; --ticket:#3A3418; --ticket-ink:#F4EBC4; --ticket-line:#6B5E2A; --ok:#5DBB84;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:.98;margin:0;text-wrap:balance;text-transform:uppercase;letter-spacing:.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+.eyebrow{font-family:var(--mono);font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:700;font-size:1rem;padding:13px 20px;border-radius:var(--radius);border:0;cursor:pointer;text-decoration:none;transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn-red{background:var(--red);color:var(--red-ink)}
+.btn-line{background:transparent;color:var(--on-steel);box-shadow:inset 0 0 0 2px rgba(233,238,242,.4)}
+
+.ribbon{background:var(--red);color:#fff;font-size:.85rem;text-align:center;padding:6px 16px;font-weight:600}
+
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--steel);color:var(--on-steel);border-bottom:3px solid var(--red)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:40px;height:40px;border-radius:50%;border:3px solid var(--on-steel);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:1.3rem;line-height:1}
+.brand b{display:block;font-family:var(--display);font-weight:900;font-size:1.45rem;letter-spacing:.03em;line-height:1;text-transform:uppercase}
+.brand small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;color:var(--on-steel-soft);margin-top:3px;text-transform:uppercase}
+nav.links{display:flex;gap:22px;font-weight:600;font-size:.95rem}
+nav.links a{text-decoration:none;color:var(--on-steel-soft)}
+nav.links a:hover{color:var(--on-steel)}
+.top .btn{padding:10px 16px;font-size:.92rem}
+@media (max-width:880px){nav.links{display:none}}
+
+/* hero */
+.hero{background:var(--steel-2);color:var(--on-steel);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 64px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 64px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-block:64px 72px}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);margin-top:14px}
+.hero h1 span{color:var(--red)}
+.hero .lede{margin-top:20px;font-size:1.12rem;color:var(--on-steel-soft);max-width:33em}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .call{margin-top:18px;color:var(--on-steel-soft);font-size:.96rem}
+.hero .call strong{color:var(--on-steel);font-family:var(--mono);font-weight:600;user-select:all}
+
+/* repair order ticket */
+.ticket{background:var(--ticket);color:var(--ticket-ink);border-radius:2px;padding:20px 22px 18px;font-family:var(--mono);font-size:.86rem;box-shadow:0 18px 40px rgba(0,0,0,.35);transform:rotate(1.2deg);position:relative}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px;background:radial-gradient(circle at 6px 8px,transparent 5px,var(--ticket) 5.5px) 0 0/12px 8px repeat-x}
+.ticket .t-head{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ticket-ink);padding-bottom:8px;margin-bottom:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;margin:0 0 12px}
+.ticket dt{opacity:.7}
+.ticket dd{margin:0}
+.ticket table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.ticket td{padding:6px 0;border-bottom:1px dashed var(--ticket-line);vertical-align:top}
+.ticket td:last-child{text-align:right;white-space:nowrap;padding-left:10px}
+.ticket tr.total td{border-bottom:0;font-weight:600;font-size:.95rem;padding-top:9px}
+.stamp{margin-top:12px;display:inline-block;border:2px solid var(--ok);color:var(--ok);padding:3px 10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transform:rotate(-3deg);font-size:.78rem}
+.ticket .note{margin-top:10px;font-size:.74rem;opacity:.7}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;padding-block:48px 56px;gap:40px}.ticket{transform:none;max-width:460px}}
+
+/* sections */
+section.block{padding-block:80px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 48px;align-items:end;margin-bottom:36px}
+.head h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-top:10px}
+.head p{color:var(--ink-soft);max-width:36em}
+@media (max-width:760px){.head{grid-template-columns:1fr}section.block{padding-block:56px}}
+
+/* services as price board */
+.board{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.board-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;align-items:baseline;padding:18px 22px;border-top:1px solid var(--line)}
+.board-row:first-child{border-top:0}
+.board-row h3{font-size:1.45rem;letter-spacing:.02em}
+.board-row p{grid-column:1;color:var(--ink-soft);font-size:.96rem}
+.board-row .price{grid-column:2;grid-row:1 / span 2;align-self:center;font-family:var(--mono);font-weight:600;font-size:1.05rem;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.board-row .price small{display:block;font-family:var(--body);font-weight:500;font-size:.75rem;color:var(--ink-soft)}
+.board-foot{padding:12px 22px;background:var(--bg);font-size:.85rem;color:var(--ink-soft);border-top:1px solid var(--line)}
+@media (max-width:520px){.board-row{grid-template-columns:1fr}.board-row .price{grid-column:1;grid-row:auto;text-align:left}}
+
+/* inspection tool */
+.inspect{background:var(--steel);color:var(--on-steel)}
+.inspect .head p{color:var(--on-steel-soft)}
+.inspect-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.months{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.months button{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:.04em;padding:14px 0;border-radius:var(--radius);border:2px solid rgba(233,238,242,.25);background:transparent;color:var(--on-steel);cursor:pointer;text-transform:uppercase}
+.months button:hover{border-color:var(--on-steel)}
+.months button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.picker-label{font-weight:600;margin-bottom:12px;display:block}
+.result{background:var(--steel-2);border:1px solid rgba(233,238,242,.14);border-radius:var(--radius);padding:24px}
+.result .big{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3.6vw,2.4rem);text-transform:uppercase;line-height:1.05}
+.result .big em{font-style:normal;color:var(--red)}
+.result p{color:var(--on-steel-soft);margin-top:12px}
+.result .btn{margin-top:18px}
+.inspect-note{margin-top:16px;font-size:.85rem;color:var(--on-steel-soft)}
+@media (max-width:860px){.inspect-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.months{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;display:flex;flex-direction:column;gap:8px}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:2.2rem;line-height:1;color:var(--red)}
+.steps h3{font-size:1.2rem}
+.steps p{font-size:.93rem;color:var(--ink-soft)}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.guarantee{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;padding:18px 22px;border:2px dashed var(--line);border-radius:var(--radius)}
+.guarantee b{font-family:var(--display);font-weight:900;font-size:1.6rem;text-transform:uppercase;letter-spacing:.02em}
+.guarantee span{color:var(--ink-soft)}
+
+/* hours + reviews */
+.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;align-items:start}
+.hours{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:8px 22px 18px}
+.hours h2{font-size:1.9rem;margin:16px 0 10px}
+.hours table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-family:var(--mono);font-weight:500;font-size:.92rem}
+.hours tr.today td{font-weight:700;color:var(--red)}
+.hours tr.today td:first-child::after{content:" · today";font-weight:600;font-size:.8rem}
+.hours .addr{margin-top:14px;font-size:.95rem;color:var(--ink-soft)}
+.hours .addr strong{color:var(--ink);user-select:all}
+.reviews{display:grid;gap:14px}
+.review{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:var(--radius);padding:18px 20px}
+.review blockquote{margin:0 0 8px;font-size:1.02rem}
+.review footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.86rem;color:var(--ink-soft)}
+.tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:1px 6px}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+
+/* request form */
+.req{background:var(--steel-2);color:var(--on-steel)}
+.req-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px}
+.req h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-top:10px}
+.req .intro{color:var(--on-steel-soft);margin-top:14px;max-width:30em}
+.req ul.facts{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px;color:var(--on-steel-soft)}
+.req ul.facts strong{color:var(--on-steel)}
+form.quote{background:var(--surface);color:var(--ink);border-radius:var(--radius);padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-weight:600;font-size:.9rem}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:11px 12px;width:100%}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--red);outline-offset:0;border-color:var(--red)}
+form.quote .btn{grid-column:1/-1;padding:15px}
+.form-msg{grid-column:1/-1;background:color-mix(in srgb,var(--red) 10%,var(--surface));border:1px solid var(--red);border-radius:var(--radius);padding:12px 14px;font-size:.95rem}
+.fine{grid-column:1/-1;font-size:.82rem;color:var(--ink-soft);margin-top:-4px}
+@media (max-width:860px){.req-grid{grid-template-columns:1fr;gap:32px}}
+@media (max-width:520px){form.quote{grid-template-columns:1fr;padding:20px}}
+
+.foot{background:var(--steel);color:var(--on-steel-soft);font-size:.9rem}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:22px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Demo website · Northfork is a fictional shop created as a portfolio sample</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Northfork Auto and Tire, home">
+      <span class="brand-mark" aria-hidden="true">N</span>
+      <span><b>Northfork</b><small>Auto &amp; Tire · Corry, PA</small></span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services &amp; prices</a>
+      <a href="#inspection">Inspection</a>
+      <a href="#how">How it works</a>
+      <a href="#hours">Hours</a>
+    </nav>
+    <a class="btn btn-red" href="#request">Book service</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Family-owned repair shop · Est. 2009</p>
+        <h1>Straight answers. Fair prices. <span>Your car back when we said.</span></h1>
+        <p class="lede">We call you with a written estimate before we touch a wrench. No surprise charges, no upsell list, and your old parts are in the trunk if you want to see them.</p>
+        <div class="ctas">
+          <a class="btn btn-red" href="#request">Request an appointment</a>
+          <a class="btn btn-line" href="#services">See prices</a>
+        </div>
+        <p class="call">Or call the shop: <strong>(814) 555-0187</strong></p>
+      </div>
+
+      <aside class="ticket" aria-label="Sample repair order">
+        <div class="t-head"><span>Repair order</span><span>No. 4471</span></div>
+        <dl>
+          <dt>Vehicle</dt><dd>2014 Chevy Silverado 1500</dd>
+          <dt>Mileage</dt><dd>128,402</dd>
+          <dt>Concern</dt><dd>Grinding when braking</dd>
+        </dl>
+        <table>
+          <tr><td>Front pads &amp; rotors, both sides</td><td>$289.00</td></tr>
+          <tr><td>Brake fluid flush</td><td>$89.00</td></tr>
+          <tr><td>Inspection of rear brakes</td><td>No charge</td></tr>
+          <tr class="total"><td>Estimate total</td><td>$378.00</td></tr>
+        </table>
+        <span class="stamp">Approved by phone · Ready 4:00 PM</span>
+        <p class="note">Sample ticket. Every job starts with an estimate like this.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Services &amp; prices</p>
+          <h2>Know the price before you pull in.</h2>
+        </div>
+        <p>Starting prices for most cars and light trucks. Your written estimate is the final word, and we never go over it without calling you first.</p>
+      </div>
+      <div class="board">
+        <div class="board-row"><h3>Oil change</h3><p>Synthetic blend or full synthetic, new filter, fluid top-off and tire pressure check.</p><span class="price">$49<small>from</small></span></div>
+        <div class="board-row"><h3>PA state inspection</h3><p>Safety inspection while you wait or drop off. Emissions testing where your county requires it.</p><span class="price">$39<small>plus sticker fee</small></span></div>
+        <div class="board-row"><h3>Brakes</h3><p>Pads and rotors, calipers, lines and fluid. Free brake check with any service.</p><span class="price">$189<small>per axle, from</small></span></div>
+        <div class="board-row"><h3>Check engine light</h3><p>Full computer scan and road test. The fee comes off your bill if we do the repair.</p><span class="price">$95<small>diagnostic</small></span></div>
+        <div class="board-row"><h3>Tires</h3><p>Mount, balance, rotation and flat repair. We can order most sizes by the next morning.</p><span class="price">$25<small>per tire, mount &amp; balance</small></span></div>
+        <div class="board-row"><h3>A/C &amp; heat</h3><p>A/C recharge and leak check, heater core and blower motor repair.</p><span class="price">$149<small>A/C recharge, from</small></span></div>
+        <p class="board-foot">Sample prices for a demo site. A real shop would list its own.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block inspect" id="inspection">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">PA inspection reminder</p>
+          <h2>When is your sticker due?</h2>
+        </div>
+        <p>Pennsylvania lets you get inspected up to 90 days before your sticker expires. Tap the month on your windshield sticker to see your window.</p>
+      </div>
+      <div class="inspect-grid">
+        <div>
+          <span class="picker-label" id="m-label">Sticker expires in</span>
+          <div class="months" role="group" aria-labelledby="m-label" id="months"></div>
+        </div>
+        <div class="result" id="result" aria-live="polite">
+          <p class="big" id="r-big">Pick your month</p>
+          <p id="r-text">Your inspection window will show here.</p>
+          <a class="btn btn-red" href="#request" id="r-btn">Book my inspection</a>
+        </div>
+      </div>
+      <p class="inspect-note">Driving with an expired sticker can get you a ticket. Book a couple of weeks early in March and October, our busiest inspection months.</p>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="eyebrow">How a repair works</p>
+          <h2>Five steps, no surprises.</h2>
+        </div>
+        <p>Every job follows the same order, so you always know where your car stands.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Drop off</h3><p>Book online or call. Use the key drop box if you come before we open.</p></li>
+        <li><h3>We diagnose</h3><p>A technician inspects the problem and checks the basics while it's on the lift.</p></li>
+        <li><h3>You get a call</h3><p>We explain what we found and give you a written estimate by text or email.</p></li>
+        <li><h3>You decide</h3><p>Nothing gets fixed until you say yes. Want a second opinion? No hard feelings.</p></li>
+        <li><h3>Pick up</h3><p>We text when it's ready and walk you through what we did.</p></li>
+      </ol>
+      <div class="guarantee">
+        <b>12 months / 12,000 miles</b>
+        <span>Warranty on parts and labor for every repair, whichever comes first.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="hours" style="padding-top:0">
+    <div class="wrap split">
+      <div class="hours">
+        <h2>Shop hours</h2>
+        <table id="hours-table">
+          <tr data-day="1"><td>Monday</td><td>7:30 am – 5:30 pm</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>7:30 am – 5:30 pm</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>7:30 am – 5:30 pm</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>7:30 am – 5:30 pm</td></tr>
+          <tr data-day="5"><td>Friday</td><td>7:30 am – 5:30 pm</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>8:00 am – 12:00 pm</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <p class="addr">Address: <strong>000 Example Rd, Corry, PA</strong><br>Phone: <strong>(814) 555-0187</strong></p>
+      </div>
+      <div class="reviews" aria-label="Sample reviews">
+        <article class="review">
+          <blockquote>They called with the price before doing anything and it came in under the estimate. First shop I've trusted in years.</blockquote>
+          <footer><span>Customer, Corry</span><span class="tag">Sample review</span></footer>
+        </article>
+        <article class="review">
+          <blockquote>Dropped my truck off at 6 a.m. in the key box on the way to work. Text said it was done by lunch.</blockquote>
+          <footer><span>Customer, Union City</span><span class="tag">Sample review</span></footer>
+        </article>
+        <article class="review">
+          <blockquote>Inspection done while I waited, and they showed me the worn tie rod instead of just telling me.</blockquote>
+          <footer><span>Customer, Spartansburg</span><span class="tag">Sample review</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block req" id="request">
+    <div class="wrap req-grid">
+      <div>
+        <p class="eyebrow">Book service</p>
+        <h2>Request an appointment.</h2>
+        <p class="intro">Tell us what's going on and when works for you. We'll confirm your time by call or text, usually the same business day.</p>
+        <ul class="facts">
+          <li><strong>Early drop-off:</strong> key box by the front door.</li>
+          <li><strong>Need a ride?</strong> Free shuttle within 5 miles of the shop.</li>
+          <li><strong>Payment:</strong> cash, check and all major cards.</li>
+        </ul>
+      </div>
+
+      <form class="quote" id="quote-form" method="POST" action="https://formspree.io/f/xgaabzqp">
+        <input type="hidden" name="_subject" value="New service request from the Northfork Auto demo site">
+        <p hidden><label>Leave this empty: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="f-vehicle">Vehicle</label><input id="f-vehicle" name="vehicle" placeholder="Year, make, model"></div>
+        <div class="field"><label for="f-service">Service needed</label>
+          <select id="f-service" name="service">
+            <option>Oil change</option><option>PA state inspection</option><option>Brakes</option><option>Check engine light</option><option>Tires</option><option>A/C or heat</option><option>Something else</option>
+          </select></div>
+        <div class="field"><label for="f-day">Preferred day</label>
+          <select id="f-day" name="preferred_day"><option>As soon as possible</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday morning</option></select></div>
+        <div class="field"><label for="f-wait">Wait or drop off?</label>
+          <select id="f-wait" name="wait_or_drop"><option>Drop off</option><option>Wait at the shop</option><option>Need the shuttle</option></select></div>
+        <div class="field full"><label for="f-notes">What's going on?</label><textarea id="f-notes" name="notes" placeholder="Noises, warning lights, when it started…"></textarea></div>
+        <button class="btn btn-red" type="submit" id="f-submit">Send my request</button>
+        <p class="fine">We only use your number to confirm this appointment.</p>
+        <div class="form-msg" id="form-msg" role="status" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© Northfork Auto &amp; Tire · Corry, PA</span>
+    <span>Demo site · sample content only</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // highlight today's hours
+  var row = document.querySelector('#hours-table tr[data-day="' + new Date().getDay() + '"]');
+  if (row) row.classList.add('today');
+
+  // PA inspection window picker
+  var names = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var wrap = document.getElementById('months');
+  var big = document.getElementById('r-big');
+  var text = document.getElementById('r-text');
+  var buttons = [];
+  names.forEach(function(n, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = n.slice(0,3);
+    b.setAttribute('aria-label', n);
+    b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function(){ pick(i); });
+    wrap.appendChild(b);
+    buttons.push(b);
+  });
+  function pick(i){
+    buttons.forEach(function(b, j){ b.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+    var start = names[(i + 10) % 12];
+    var book = names[(i + 11) % 12];
+    big.innerHTML = 'Inspect from <em>' + start + ' 1</em> to the end of <em>' + names[i] + '</em>';
+    text.textContent = 'Your window opens about 90 days before the sticker runs out. Booking in ' + book + ' gives you time for any repairs before it expires.';
+  }
+  // start on the month after next, a likely real case
+  pick((new Date().getMonth() + 2) % 12);
+
+  // send the request to Formspree, then show the thank-you page
+  var form = document.getElementById('quote-form');
+  var msg = document.getElementById('form-msg');
+  var btn = document.getElementById('f-submit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = form.elements;
+    if (!f['name'].value.trim() || !f['phone'].value.trim()){
+      msg.hidden = false;
+      msg.textContent = 'Add your name and phone number so we can confirm your appointment.';
+      (f['name'].value.trim() ? f['phone'] : f['name']).focus();
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    msg.hidden = true;
+    fetch(form.action, { method:'POST', body:new FormData(form), headers:{ 'Accept':'application/json' } })
+      .then(function(r){
+        if (r.ok){ window.location.href = '/thanks.html'; return; }
+        throw new Error('bad response');
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Send my request';
+        msg.hidden = false;
+        msg.textContent = 'That didn’t go through. Check your connection and try again, or call (814) 555-0187.';
+      });
+  });
+})();
+</script>
+</body>
+</html>
